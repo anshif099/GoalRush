@@ -1,0 +1,304 @@
+/* ===== Rewards Marketplace Section ===== */
+.marketplace-section {
+  padding: 100px 0;
+  background: var(--off-white);
+  position: relative;
+}
+
+.market-header-block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+  gap: 30px;
+}
+
+.market-header-left {
+  flex-grow: 1;
+}
+
+.market-tag {
+  background: rgba(0, 166, 81, 0.08);
+  border-color: rgba(0, 166, 81, 0.2);
+  color: var(--emerald-green);
+}
+
+/* User Coin Balance Board */
+.user-coin-board {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: white;
+  padding: 16px 28px;
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(0, 71, 171, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 71, 171, 0.05);
+}
+
+.coin-glow-icon {
+  font-size: 36px;
+  animation: float 4s ease-in-out infinite;
+}
+
+.coin-balance-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.balance-lbl {
+  font-size: 10px;
+  font-weight: 800;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+}
+
+.balance-val {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--royal-blue);
+}
+
+/* Filter categories bar */
+.market-filter-bar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 40px;
+  overflow-x: auto;
+  padding-bottom: 12px;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.market-filter-bar::-webkit-scrollbar {
+  height: 4px;
+}
+
+.market-filter-bar::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.filter-btn {
+  background: white;
+  border: 1.5px solid rgba(0, 0, 0, 0.05);
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.25s ease;
+}
+
+.filter-btn:hover {
+  background: var(--light-gray);
+  border-color: rgba(0, 0, 0, 0.1);
+  color: var(--text-primary);
+}
+
+.filter-btn.active {
+  background: var(--royal-blue);
+  color: white;
+  border-color: var(--royal-blue);
+  box-shadow: 0 6px 16px rgba(0, 71, 171, 0.25);
+}
+
+/* Products Grid */
+.market-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+
+/* E-commerce Card */
+.market-card {
+  background: white;
+  border-radius: var(--radius-xl);
+  border: 1.5px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.market-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--brand-color, var(--royal-blue));
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08), 
+              0 0 15px rgba(var(--brand-color), 0.05);
+}
+
+/* Thumbnail Wrapper */
+.market-card-image-wrap {
+  height: 140px;
+  background: linear-gradient(135deg, rgba(var(--brand-color), 0.05) 0%, rgba(var(--brand-color), 0.02) 100%);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1.5px solid rgba(0, 0, 0, 0.03);
+}
+
+.market-card-bg-glow {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--brand-color, var(--royal-blue));
+  filter: blur(35px);
+  opacity: 0.1;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.market-card:hover .market-card-bg-glow {
+  transform: scale(1.3);
+  opacity: 0.18;
+}
+
+.market-card-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: white;
+  color: var(--text-primary);
+  font-size: 10px;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.market-card-icon {
+  font-size: 56px;
+  transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.market-card:hover .market-card-icon {
+  transform: scale(1.15) rotate(5deg);
+}
+
+/* Card Body */
+.market-card-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-grow: 1;
+}
+
+.market-card-brand {
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--brand-color, var(--text-muted));
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.market-card-title {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.3px;
+  line-height: 1.35;
+}
+
+.market-card-meta {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+/* Card Footer */
+.market-card-footer {
+  padding: 20px 24px;
+  border-top: 1.5px solid rgba(0, 0, 0, 0.03);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fafbfd;
+}
+
+.price-tag {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.coin-gold-icon {
+  font-size: 18px;
+}
+
+.price-val {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 800;
+  color: #7a5a00;
+}
+
+/* Action buttons */
+.btn-redeem-action {
+  background: white;
+  border: 1.5px solid rgba(0, 71, 171, 0.2);
+  color: var(--royal-blue);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: all 0.25s ease;
+}
+
+.btn-redeem-action:hover {
+  background: var(--royal-blue);
+  color: white;
+  border-color: var(--royal-blue);
+  box-shadow: 0 4px 12px rgba(0, 71, 171, 0.15);
+}
+
+.btn-redeem-success {
+  background: rgba(6, 193, 103, 0.08);
+  border: 1.5px solid rgba(6, 193, 103, 0.2);
+  color: #058848;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: default;
+}
+
+/* Responsive queries */
+@media (max-width: 1200px) {
+  .market-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 900px) {
+  .market-header-block {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .user-coin-board {
+    align-self: stretch;
+    justify-content: center;
+  }
+  .market-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .market-grid {
+    grid-template-columns: 1fr;
+    max-width: 380px;
+    margin: 0 auto;
+  }
+}

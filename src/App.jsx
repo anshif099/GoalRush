@@ -8,6 +8,7 @@ import Features from './components/Features';
 import Challenges from './components/Challenges';
 import Predictions from './components/Predictions';
 import Rewards from './components/Rewards';
+import Marketplace from './components/Marketplace';
 import Sponsors from './components/Sponsors';
 import Community from './components/Community';
 import Contact from './components/Contact';
@@ -46,6 +47,7 @@ function App() {
         <Challenges />
         <Predictions />
         <Rewards />
+        <Marketplace />
         <Sponsors />
         <Community />
         <Contact />
