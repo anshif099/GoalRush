@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Stats from './components/Stats';
 import PlatformFeatures from './components/PlatformFeatures';
+import Timeline from './components/Timeline';
 import Features from './components/Features';
 import Challenges from './components/Challenges';
 import Rewards from './components/Rewards';
@@ -39,6 +40,7 @@ function App() {
         <Hero />
         <Stats />
         <PlatformFeatures />
+        <Timeline />
         <Features />
         <Challenges />
         <Rewards />
