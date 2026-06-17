@@ -6,6 +6,7 @@ import PlatformFeatures from './components/PlatformFeatures';
 import Timeline from './components/Timeline';
 import Features from './components/Features';
 import Challenges from './components/Challenges';
+import Predictions from './components/Predictions';
 import Rewards from './components/Rewards';
 import Sponsors from './components/Sponsors';
 import Community from './components/Community';
@@ -43,6 +44,7 @@ function App() {
         <Timeline />
         <Features />
         <Challenges />
+        <Predictions />
         <Rewards />
         <Sponsors />
         <Community />
