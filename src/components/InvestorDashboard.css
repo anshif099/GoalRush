@@ -1,0 +1,323 @@
+/* ===== Investor Dashboard Section ===== */
+.investor-section {
+  padding: 100px 0;
+  position: relative;
+  background: #060913; /* Deep Sci-Fi Navy */
+  overflow: hidden;
+  color: #fff;
+}
+
+/* Background glows */
+.investor-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.investor-orb-top {
+  position: absolute;
+  top: -10%;
+  left: 30%;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 60%);
+  filter: blur(100px);
+}
+
+.investor-orb-bottom {
+  position: absolute;
+  bottom: -10%;
+  right: 20%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 71, 171, 0.08) 0%, transparent 60%);
+  filter: blur(90px);
+}
+
+.investor-header {
+  text-align: center;
+  margin-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.investor-header .section-subtitle {
+  color: #8fa0c2;
+  text-align: center;
+}
+
+.investor-tag {
+  background: rgba(212, 175, 55, 0.1);
+  border-color: rgba(212, 175, 55, 0.3);
+  color: #D4AF37;
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.15);
+}
+
+/* Console Card Wrapper */
+.investor-console-card {
+  max-width: 960px;
+  margin: 0 auto;
+  background: rgba(13, 20, 43, 0.85);
+  border: 1.5px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  backdrop-filter: blur(12px);
+}
+
+.console-header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 16px 28px;
+}
+
+.console-title-text {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #D4AF37;
+}
+
+.live-badge-wrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(212, 175, 55, 0.08);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  color: #D4AF37;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+}
+
+/* Slider Section */
+.console-slider-section {
+  padding: 28px 28px 20px 28px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.slider-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.timeline-lbl {
+  font-size: 11px;
+  font-weight: 800;
+  color: #8fa0c2;
+  letter-spacing: 0.06em;
+}
+
+.month-highlight {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 800;
+  color: #D4AF37;
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+}
+
+/* Custom Slider inputs */
+.custom-slider-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.investor-range-input {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-pill);
+  outline: none;
+}
+
+.investor-range-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #D4AF37;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+  border: 2px solid white;
+  transition: transform 0.1s ease;
+}
+
+.investor-range-input::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+}
+
+.slider-ticks {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tick-btn {
+  background: transparent;
+  border: none;
+  color: #8fa0c2;
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 4px 12px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.tick-btn:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.tick-btn.active {
+  color: #D4AF37;
+  font-weight: 800;
+}
+
+/* Dashboard Projections Grid */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 28px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Card */
+.dash-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: var(--radius-lg);
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: all 0.3s ease;
+}
+
+.dash-card:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(212, 175, 55, 0.2);
+}
+
+.dash-card .card-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dash-card .card-icon {
+  font-size: 20px;
+}
+
+.dash-card .card-lbl {
+  font-size: 11px;
+  font-weight: 800;
+  color: #8fa0c2;
+  letter-spacing: 0.05em;
+}
+
+.card-trend-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.trend-number {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 900;
+  color: white;
+  letter-spacing: -0.8px;
+  line-height: 1.1;
+  min-height: 38px;
+}
+
+.trend-bar-track {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
+
+.trend-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #D4AF37, #F5D65E);
+  border-radius: var(--radius-pill);
+  transition: width 0.5s cubic-bezier(0.2, 1, 0.2, 1);
+}
+
+.card-users .trend-bar-fill { background: linear-gradient(90deg, #0047AB, #00f0ff); }
+.card-dau .trend-bar-fill { background: linear-gradient(90deg, #E10613, #ff0055); }
+.card-impressions .trend-bar-fill { background: linear-gradient(90deg, #00A651, #39ff14); }
+.card-revenue .trend-bar-fill { background: linear-gradient(90deg, #D4AF37, #ffea00); }
+
+.card-footer-stats {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: #8fa0c2;
+  font-weight: 600;
+}
+
+/* Dashboard Action Footer */
+.dashboard-cta-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.01);
+  padding: 24px 28px;
+  gap: 20px;
+}
+
+.dashboard-cta-footer p {
+  font-size: 13px;
+  color: #8fa0c2;
+}
+
+/* Responsive configurations */
+@media (max-width: 1024px) {
+  .dashboard-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  .dashboard-cta-footer {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+    padding: 20px;
+  }
+  .console-slider-section {
+    padding: 20px;
+  }
+  .investor-console-card {
+    border-radius: var(--radius-lg);
+  }
+}

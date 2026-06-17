@@ -11,6 +11,7 @@ import Predictions from './components/Predictions';
 import Rewards from './components/Rewards';
 import Marketplace from './components/Marketplace';
 import Sponsors from './components/Sponsors';
+import InvestorDashboard from './components/InvestorDashboard';
 import Community from './components/Community';
 import CityLeaderboard from './components/CityLeaderboard';
 import Contact from './components/Contact';
@@ -52,6 +53,7 @@ function App() {
         <Rewards />
         <Marketplace />
         <Sponsors />
+        <InvestorDashboard />
         <Community />
         <CityLeaderboard />
         <Contact />
