@@ -5,12 +5,22 @@
     <link rel="icon" type="image/png" href="/src/assets/logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <!-- PWA Settings -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#0047AB" />
+    
+    <!-- iOS & Android Web App Support -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="GoalRush" />
+    <link rel="apple-touch-icon" href="/icon-192.png" />
+
     <!-- SEO -->
     <title>Goal Rush — The Fan Engagement Engine for Global Sports</title>
     <meta name="description" content="Play daily challenges, predict matches, earn rewards, compete with friends, and experience every sporting event like never before. Join 10M+ fans on Goal Rush." />
     <meta name="keywords" content="sports fan engagement, match predictions, daily challenges, FIFA World Cup 2026, sports rewards, fan platform" />
     <meta name="author" content="Goal Rush" />
-    <meta name="theme-color" content="#0047AB" />
 
     <!-- Open Graph -->
     <meta property="og:title" content="Goal Rush — The Fan Engagement Engine for Global Sports" />
@@ -30,5 +40,16 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    
+    <!-- PWA Service Worker Registration -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then((reg) => console.log('GoalRush Service Worker registered successfully:', reg.scope))
+            .catch((err) => console.error('GoalRush Service Worker registration failed:', err));
+        });
+      }
+    </script>
   </body>
 </html>
