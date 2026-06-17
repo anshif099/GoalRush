@@ -11,6 +11,7 @@ import Rewards from './components/Rewards';
 import Marketplace from './components/Marketplace';
 import Sponsors from './components/Sponsors';
 import Community from './components/Community';
+import CityLeaderboard from './components/CityLeaderboard';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import './App.css';
@@ -50,6 +51,7 @@ function App() {
         <Marketplace />
         <Sponsors />
         <Community />
+        <CityLeaderboard />
         <Contact />
       </main>
       <Footer />

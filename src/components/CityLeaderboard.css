@@ -1,0 +1,295 @@
+/* ===== City Leaderboard Section ===== */
+.leaderboard-section {
+  padding: 100px 0;
+  position: relative;
+  background: white;
+  overflow: hidden;
+}
+
+/* Background grid glow */
+.leaderboard-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.leaderboard-glow-left {
+  position: absolute;
+  top: 10%;
+  left: -10%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 71, 171, 0.04) 0%, transparent 70%);
+  filter: blur(80px);
+}
+
+.leaderboard-glow-right {
+  position: absolute;
+  bottom: 10%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 166, 81, 0.04) 0%, transparent 70%);
+  filter: blur(80px);
+}
+
+.leaderboard-header-wrap {
+  text-align: center;
+  margin-bottom: 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.leaderboard-header-wrap .section-subtitle {
+  text-align: center;
+}
+
+.leader-tag {
+  background: rgba(0, 71, 171, 0.06);
+  border-color: rgba(0, 71, 171, 0.15);
+  color: var(--royal-blue);
+}
+
+.leaderboard-main {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* Stats bar */
+.leaderboard-stats-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--off-white);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  padding: 14px 28px;
+  border-radius: var(--radius-md);
+  margin-bottom: 24px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.text-pulse {
+  color: var(--bright-red);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.text-pulse::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--bright-red);
+  animation: pulse-glow 2.2s infinite;
+}
+
+/* Leaderboard Grid Box */
+.leaderboard-box {
+  background: white;
+  border: 1.5px solid rgba(0, 0, 0, 0.06);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  padding: 24px;
+  overflow: hidden;
+}
+
+/* Column titles */
+.leaderboard-cols-header {
+  display: grid;
+  grid-template-columns: 100px 1.5fr 1fr 120px;
+  padding: 12px 20px;
+  border-bottom: 1.5px solid rgba(0, 0, 0, 0.05);
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Container holding absolutely positioned rows */
+.leaderboard-list {
+  position: relative;
+  height: 336px; /* 4 items * 84px height each */
+  margin-top: 10px;
+}
+
+/* Leaderboard rows with transition slides */
+.leaderboard-row {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 74px; /* Row height is 74px + 10px margin = 84px offsets */
+  display: grid;
+  grid-template-columns: 100px 1.5fr 1fr 120px;
+  align-items: center;
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  border-radius: var(--radius-md);
+  padding: 0 20px;
+  transition: transform 0.6s cubic-bezier(0.2, 1, 0.2, 1), background-color 0.3s ease, border-color 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.01);
+}
+
+.leaderboard-row:hover {
+  background: var(--off-white);
+  border-color: rgba(0, 71, 171, 0.12);
+}
+
+/* Gold Leader Highlight */
+.row-first {
+  background: linear-gradient(90deg, rgba(212, 175, 55, 0.04) 0%, rgba(212, 175, 55, 0.01) 100%);
+  border-color: rgba(212, 175, 55, 0.3);
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.05);
+}
+
+.row-first:hover {
+  background: linear-gradient(90deg, rgba(212, 175, 55, 0.06) 0%, rgba(212, 175, 55, 0.02) 100%);
+  border-color: rgba(212, 175, 55, 0.4);
+}
+
+/* Cheering feedback */
+.row-cheering {
+  animation: rowPulse 0.4s ease;
+}
+
+@keyframes rowPulse {
+  0% { transform: scale(1) translateY(var(--offset)); box-shadow: 0 2px 6px rgba(0,0,0,0.01); }
+  50% { transform: scale(1.02) translateY(var(--offset)); box-shadow: 0 8px 24px rgba(0, 71, 171, 0.1); border-color: var(--royal-blue); }
+  100% { transform: scale(1) translateY(var(--offset)); box-shadow: 0 2px 6px rgba(0,0,0,0.01); }
+}
+
+/* Columns cells styling */
+.row-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.col-rank {
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+
+.rank-trophy {
+  font-size: 20px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.rank-num {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--text-secondary);
+}
+
+.city-name {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.3px;
+}
+
+.city-subtext {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.points-val {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--royal-blue);
+}
+
+.row-first .points-val {
+  color: #8b7300;
+}
+
+.accuracy-val {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+/* Cheer buttons */
+.btn-cheer {
+  background: white;
+  border: 1.5px solid rgba(0, 71, 171, 0.2);
+  color: var(--royal-blue);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-cheer:hover {
+  background: var(--royal-blue);
+  color: white;
+  border-color: var(--royal-blue);
+  box-shadow: 0 4px 12px rgba(0, 71, 171, 0.15);
+}
+
+/* Responsive configurations */
+@media (max-width: 768px) {
+  .leaderboard-stats-row {
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .leaderboard-cols-header {
+    display: none; /* Hide header column titles on mobile */
+  }
+
+  .leaderboard-box {
+    padding: 12px;
+  }
+
+  .leaderboard-list {
+    height: 380px; /* Increase row height calculations */
+  }
+
+  .leaderboard-row {
+    grid-template-columns: 60px 1.2fr 1fr;
+    height: 85px; /* taller rows on mobile */
+    padding: 0 12px;
+  }
+
+  .col-action {
+    grid-column: span 3;
+    width: 100%;
+    margin-top: 6px;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .btn-cheer {
+    padding: 6px 12px;
+    font-size: 11px;
+  }
+
+  .city-name {
+    font-size: 15px;
+  }
+  
+  .points-val {
+    font-size: 14px;
+  }
+}
