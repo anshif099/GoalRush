@@ -1,0 +1,166 @@
+/* ===== Contact Section ===== */
+.contact-section {
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(170deg, #f5f8ff 0%, #ffffff 40%, #fffdf0 100%);
+}
+
+.contact-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 80% 20%, rgba(212,175,55,0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 20% 80%, rgba(0,71,171,0.07) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.contact-container {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 64px;
+  align-items: start;
+  position: relative;
+  z-index: 1;
+}
+
+.contact-left { display: flex; flex-direction: column; gap: 28px; }
+
+/* Info Rows */
+.contact-info-list { display: flex; flex-direction: column; gap: 14px; }
+
+.contact-info-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 16px;
+  background: white;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(0,0,0,0.06);
+  transition: var(--transition-fast);
+}
+
+.contact-info-row:hover {
+  border-color: rgba(0,71,171,0.2);
+  transform: translateX(6px);
+  box-shadow: 0 4px 16px rgba(0,71,171,0.08);
+}
+
+.info-icon { font-size: 22px; flex-shrink: 0; }
+.info-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); font-weight: 600; margin-bottom: 2px; }
+.info-value { font-size: 14px; font-weight: 600; color: var(--text-primary); }
+
+/* Form Card */
+.contact-form {
+  background: white;
+  border-radius: var(--radius-xl);
+  padding: 36px;
+  border: 1.5px solid rgba(0,0,0,0.07);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  letter-spacing: 0.02em;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  border: 1.5px solid rgba(0,0,0,0.1);
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--text-primary);
+  background: var(--off-white);
+  transition: var(--transition-fast);
+  resize: vertical;
+  outline: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--royal-blue);
+  background: white;
+  box-shadow: 0 0 0 4px rgba(0,71,171,0.08);
+}
+
+/* Type Selector */
+.type-selector {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.type-btn {
+  padding: 10px 12px;
+  border-radius: var(--radius-md);
+  border: 1.5px solid rgba(0,0,0,0.1);
+  background: var(--off-white);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: var(--transition-fast);
+  font-family: inherit;
+}
+
+.type-btn:hover { border-color: var(--royal-blue); color: var(--royal-blue); background: var(--blue-light); }
+.type-btn.active { border-color: var(--royal-blue); color: var(--royal-blue); background: var(--blue-light); }
+
+.form-submit { width: 100%; }
+
+/* Success State */
+.contact-success {
+  background: white;
+  border-radius: var(--radius-xl);
+  padding: 60px 36px;
+  text-align: center;
+  border: 1.5px solid rgba(0,166,81,0.2);
+  box-shadow: 0 8px 40px rgba(0,166,81,0.12);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  animation: scaleIn 0.4s ease both;
+}
+
+.success-emoji { font-size: 64px; animation: float 3s ease-in-out infinite; }
+
+.contact-success h3 {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.contact-success p { font-size: 16px; color: var(--text-secondary); max-width: 320px; line-height: 1.7; }
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .contact-container { grid-template-columns: 1fr; gap: 40px; }
+}
+
+@media (max-width: 640px) {
+  .contact-section { padding: 64px 0; }
+  .contact-form { padding: 24px; }
+  .form-row { grid-template-columns: 1fr; }
+  .type-selector { grid-template-columns: 1fr 1fr; }
+}

@@ -1,0 +1,43 @@
+/* ===== App.css — Global overrides & scroll polish ===== */
+
+.app {
+  width: 100%;
+  min-height: 100svh;
+  overflow-x: hidden;
+}
+
+/* Smooth scroll offset for fixed navbar */
+html {
+  scroll-padding-top: 90px;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f3f8;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #0047AB, #00A651);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #0066FF, #00D068);
+}
+
+/* Selection */
+::selection {
+  background: rgba(0, 71, 171, 0.18);
+  color: #0047AB;
+}
+
+/* Focus Styles (accessibility) */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #0047AB;
+  outline-offset: 3px;
+  border-radius: 6px;
+}

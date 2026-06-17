@@ -1,0 +1,275 @@
+/* ===== Platform Features Section ===== */
+.platform-features-section {
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+  background: var(--off-white);
+}
+
+/* Background glows */
+.plat-bg-glows {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.plat-glow {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.15;
+}
+
+.plat-glow-left {
+  top: -10%;
+  left: -10%;
+  background: radial-gradient(circle, var(--royal-blue) 0%, transparent 70%);
+}
+
+.plat-glow-right {
+  bottom: -10%;
+  right: -10%;
+  background: radial-gradient(circle, var(--emerald-green) 0%, transparent 70%);
+}
+
+.plat-header {
+  text-align: center;
+  margin-bottom: 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.plat-header .section-subtitle {
+  text-align: center;
+}
+
+/* Text Brand Gradient */
+.text-gradient-brand {
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% auto;
+  animation: gradientShift 6s linear infinite;
+}
+
+/* Grid Layout */
+.plat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Card Container with 3D Tilt */
+.plat-card {
+  position: relative;
+  border-radius: var(--radius-xl);
+  padding: 1px; /* Creates the space for the thin glowing border */
+  background: rgba(0, 0, 0, 0.08); /* Default border color */
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.15s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease, background-color 0.3s ease;
+  transform-style: preserve-3d;
+  transform: perspective(1000px) rotateX(var(--rotate-x, 0deg)) rotateY(var(--rotate-y, 0deg));
+}
+
+.plat-card:hover {
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08),
+              0 0 30px rgba(var(--accent-color), 0.1);
+  background: rgba(0, 0, 0, 0.02);
+}
+
+/* Spotlight Border Effect */
+.plat-card-border {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-xl);
+  background: radial-gradient(
+    300px circle at var(--mouse-x, 0px) var(--mouse-y, 0px),
+    var(--glow-gradient),
+    transparent 80%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.plat-card:hover .plat-card-border {
+  opacity: 1;
+}
+
+/* Card Inner Content */
+.plat-card-inner {
+  position: relative;
+  border-radius: calc(var(--radius-xl) - 1px);
+  background: var(--white);
+  padding: 40px 32px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  z-index: 2;
+  transition: background-color 0.3s ease;
+}
+
+/* Spotlight Overlay for Inner background */
+.plat-card-spotlight {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-xl);
+  background: radial-gradient(
+    250px circle at var(--mouse-x, 0px) var(--mouse-y, 0px),
+    rgba(255, 255, 255, 0.8),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Spotlight visible on hover */
+.plat-card:hover .plat-card-spotlight {
+  opacity: 0.15;
+}
+
+/* Icon Container & Glow */
+.plat-icon-container {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  background: rgba(0, 71, 171, 0.05);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Icon specific background light tint overrides */
+.plat-blue .plat-icon-container { background: rgba(0, 71, 171, 0.06); }
+.plat-red .plat-icon-container { background: rgba(225, 6, 19, 0.06); }
+.plat-gold .plat-icon-container { background: rgba(212, 175, 55, 0.08); }
+.plat-green .plat-icon-container { background: rgba(0, 166, 81, 0.06); }
+.plat-cyan .plat-icon-container { background: rgba(0, 180, 219, 0.06); }
+.plat-purple .plat-icon-container { background: rgba(142, 45, 226, 0.06); }
+
+.plat-icon-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  opacity: 0;
+  background: var(--glow-gradient);
+  filter: blur(8px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 0;
+}
+
+.plat-card:hover .plat-icon-glow {
+  opacity: 0.4;
+  transform: scale(1.1);
+}
+
+.plat-card-icon {
+  font-size: 30px;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.plat-card:hover .plat-card-icon {
+  transform: scale(1.15) rotate(5deg);
+}
+
+.plat-card:hover .plat-icon-container {
+  transform: translateY(-2px);
+}
+
+/* Content Styles */
+.plat-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-grow: 1;
+  position: relative;
+  z-index: 2;
+}
+
+.plat-card-title {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.5px;
+  transition: color 0.3s ease;
+}
+
+.plat-card:hover .plat-card-title {
+  color: var(--accent-color);
+}
+
+.plat-card-desc {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Action Link Look */
+.plat-card-action {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-muted);
+  transition: color 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.action-arrow-svg {
+  width: 16px;
+  height: 16px;
+  transform: translateX(0);
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.plat-card:hover .plat-card-action {
+  color: var(--accent-color);
+}
+
+.plat-card:hover .action-arrow-svg {
+  transform: translateX(6px);
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1024px) {
+  .plat-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .platform-features-section {
+    padding: 80px 0;
+  }
+  .plat-grid {
+    grid-template-columns: 1fr;
+    max-width: 450px;
+    margin: 0 auto;
+  }
+  .plat-card-inner {
+    padding: 36px 28px;
+  }
+}

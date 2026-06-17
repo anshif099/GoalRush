@@ -1,0 +1,177 @@
+/* ===== Community Section ===== */
+.community-section {
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #ffffff 0%, #f5f8ff 50%, #ffffff 100%);
+}
+
+.community-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 10% 50%, rgba(0,71,171,0.07) 0%, transparent 55%),
+    radial-gradient(ellipse at 90% 70%, rgba(0,166,81,0.06) 0%, transparent 55%);
+  pointer-events: none;
+}
+
+.community-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.community-left { display: flex; flex-direction: column; gap: 24px; }
+
+/* Community Stats */
+.community-stats {
+  display: flex;
+  gap: 16px;
+}
+
+.community-stat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 16px 12px;
+  background: white;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(0,0,0,0.07);
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  transition: var(--transition);
+}
+
+.community-stat:hover { transform: translateY(-4px); box-shadow: 0 10px 28px rgba(0,0,0,0.1); }
+
+.comm-stat-icon { font-size: 22px; }
+.comm-stat-value { font-family: var(--font-display); font-size: 22px; font-weight: 800; color: var(--text-primary); }
+.comm-stat-label { font-size: 11px; color: var(--text-muted); font-weight: 600; }
+
+.community-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+
+/* Feed */
+.community-feed {
+  background: white;
+  border-radius: var(--radius-xl);
+  border: 1.5px solid rgba(0,0,0,0.07);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition);
+}
+
+.community-feed:hover { box-shadow: 0 20px 60px rgba(0,0,0,0.14); }
+
+.feed-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--light-gray);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+  background: var(--off-white);
+}
+
+.feed-live {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--bright-red);
+}
+
+/* Posts */
+.feed-post {
+  display: flex;
+  gap: 12px;
+  padding: 18px 20px;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  transition: var(--transition-fast);
+  animation: slideInUp 0.4s ease both;
+  animation-delay: var(--delay, 0s);
+}
+
+.feed-post:hover { background: var(--off-white); }
+.feed-post:last-of-type { border-bottom: none; }
+
+.post-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--light-gray);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  flex-shrink: 0;
+  border: 2.5px solid white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.post-body { flex: 1; min-width: 0; }
+
+.post-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+
+.post-name { font-size: 14px; font-weight: 700; color: var(--text-primary); }
+.post-country { font-size: 14px; }
+.post-time { font-size: 11px; color: var(--text-muted); }
+
+.post-xp {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 8px;
+  background: var(--blue-light);
+  color: var(--royal-blue);
+  border-radius: var(--radius-pill);
+  margin-left: auto;
+}
+
+.post-text { font-size: 14px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 10px; }
+
+.post-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+.post-action {
+  background: transparent;
+  border: none;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: var(--radius-sm);
+  transition: var(--transition-fast);
+  font-family: inherit;
+}
+
+.post-action:hover { background: var(--light-gray); color: var(--royal-blue); }
+
+.feed-footer { padding: 14px 20px; }
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .community-container { grid-template-columns: 1fr; gap: 40px; }
+  .community-left { text-align: center; }
+  .community-stats { justify-content: center; }
+  .community-ctas { justify-content: center; }
+}
+
+@media (max-width: 640px) {
+  .community-section { padding: 64px 0; }
+  .community-stats { gap: 10px; }
+}
