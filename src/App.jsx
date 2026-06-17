@@ -5,6 +5,7 @@ import Stats from './components/Stats';
 import PlatformFeatures from './components/PlatformFeatures';
 import Timeline from './components/Timeline';
 import Features from './components/Features';
+import AIPersonalization from './components/AIPersonalization';
 import Challenges from './components/Challenges';
 import Predictions from './components/Predictions';
 import Rewards from './components/Rewards';
@@ -45,6 +46,7 @@ function App() {
         <PlatformFeatures />
         <Timeline />
         <Features />
+        <AIPersonalization />
         <Challenges />
         <Predictions />
         <Rewards />
