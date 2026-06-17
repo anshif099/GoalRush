@@ -1,0 +1,186 @@
+/* ===== Massive Closing Section ===== */
+.closing-section {
+  padding: 140px 0;
+  position: relative;
+  background: #050813; /* Cyber Dark space */
+  overflow: hidden;
+  color: #fff;
+  text-align: center;
+}
+
+/* Background graphics */
+.closing-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.closing-mesh {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(0, 71, 171, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 71, 171, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  background-position: center;
+}
+
+.closing-glow {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  filter: blur(140px);
+  opacity: 0.16;
+}
+
+.orb-blue {
+  top: -10%;
+  left: 20%;
+  background: radial-gradient(circle, #0047AB 0%, transparent 70%);
+}
+
+.orb-red {
+  bottom: -10%;
+  right: 20%;
+  background: radial-gradient(circle, #E10613 0%, transparent 70%);
+}
+
+.orb-green {
+  top: 40%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: radial-gradient(circle, #00A651 0%, transparent 70%);
+  width: 600px;
+  height: 600px;
+}
+
+/* Floating Sports Emojis */
+.float-sport {
+  position: absolute;
+  font-size: 28px;
+  opacity: 0.2;
+}
+
+.sp-1 { top: 20%; left: 10%; }
+.sp-2 { top: 15%; right: 15%; }
+.sp-3 { bottom: 25%; left: 15%; }
+.sp-4 { bottom: 20%; right: 10%; }
+.sp-5 { top: 50%; left: 80%; }
+
+.closing-container {
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* Prominent Logo ring */
+.logo-badge-wrap {
+  margin-bottom: 36px;
+}
+
+.logo-glass-ring {
+  background: white;
+  padding: 12px 28px;
+  border-radius: var(--radius-xl);
+  box-shadow: 0 10px 40px rgba(0, 240, 255, 0.2),
+              0 0 20px rgba(255, 255, 255, 0.2);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.logo-glass-ring:hover {
+  transform: scale(1.08) rotate(-1deg);
+}
+
+.closing-logo {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Typography headers */
+.closing-headline {
+  font-family: var(--font-display);
+  font-size: clamp(34px, 5.5vw, 56px);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -1.5px;
+  color: white;
+  margin-bottom: 24px;
+}
+
+.closing-subtitle {
+  font-size: 16px;
+  color: #8fa0c2;
+  line-height: 1.7;
+  max-width: 650px;
+  margin-bottom: 48px;
+}
+
+/* Buttons Grid layout */
+.closing-buttons {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.closing-buttons .btn {
+  min-width: 200px;
+}
+
+/* Button glow accents */
+.btn-glow-blue {
+  box-shadow: 0 4px 20px rgba(0, 71, 171, 0.45);
+}
+
+.btn-glow-blue:hover {
+  box-shadow: 0 10px 30px rgba(0, 71, 171, 0.6);
+}
+
+.btn-glow-red {
+  box-shadow: 0 4px 20px rgba(225, 6, 19, 0.45);
+}
+
+.btn-glow-red:hover {
+  box-shadow: 0 10px 30px rgba(225, 6, 19, 0.6);
+}
+
+.btn-glass-white {
+  background: rgba(255, 255, 255, 0.03);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+}
+
+.btn-glass-white:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: white;
+}
+
+/* Responsive configurations */
+@media (max-width: 768px) {
+  .closing-section {
+    padding: 100px 0;
+  }
+  .closing-buttons {
+    flex-direction: column;
+    align-items: stretch;
+    max-width: 340px;
+    margin: 0 auto;
+    gap: 12px;
+  }
+  .closing-buttons .btn {
+    width: 100%;
+  }
+  .float-sport {
+    display: none; /* Hide floating elements on mobile */
+  }
+}

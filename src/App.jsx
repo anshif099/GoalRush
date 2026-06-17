@@ -15,6 +15,7 @@ import InvestorDashboard from './components/InvestorDashboard';
 import Community from './components/Community';
 import CityLeaderboard from './components/CityLeaderboard';
 import Contact from './components/Contact';
+import ClosingCallout from './components/ClosingCallout';
 import Footer from './components/Footer';
 import './App.css';
 
@@ -57,6 +58,7 @@ function App() {
         <Community />
         <CityLeaderboard />
         <Contact />
+        <ClosingCallout />
       </main>
       <Footer />
     </div>
