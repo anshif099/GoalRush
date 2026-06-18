@@ -81,7 +81,7 @@ function App() {
 
   return (
     <div className="app">
-      <Navbar currentView={currentView} />
+      {currentView !== 'login' && currentView !== 'register' && <Navbar currentView={currentView} />}
       <main>
         {currentView === 'landing' && (
           <>
