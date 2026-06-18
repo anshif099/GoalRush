@@ -104,20 +104,20 @@ export default function Navbar({ currentView }) {
                   deferredPrompt.userChoice.then(() => setDeferredPrompt(null));
                 }
                 localStorage.setItem('postInstallRedirect', 'login');
-                setTimeout(() => { window.location.hash = '#login'; }, 1200);
+                window.location.hash = '#login';
                 setDownloadOpen(false);
               }}>Android</a></li>
               <li><a href="#" onClick={(e) => {
-                e.preventDefault();
-                alert('Downloading for iOS...');
-                if (deferredPrompt) {
-                  deferredPrompt.prompt();
-                  deferredPrompt.userChoice.then(() => setDeferredPrompt(null));
-                }
-                localStorage.setItem('postInstallRedirect', 'login');
-                setTimeout(() => { window.location.hash = '#login'; }, 1200);
-                setDownloadOpen(false);
-              }}>iOS</a></li>
+                  e.preventDefault();
+                  alert('Downloading for iOS...');
+                  if (deferredPrompt) {
+                    deferredPrompt.prompt();
+                    deferredPrompt.userChoice.then(() => setDeferredPrompt(null));
+                  }
+                  localStorage.setItem('postInstallRedirect', 'login');
+                  window.location.hash = '#login';
+                  setDownloadOpen(false);
+                }}>iOS</a></li>
               <li><a href="#" onClick={(e) => {
                 e.preventDefault();
                 alert('Downloading for Windows...');
