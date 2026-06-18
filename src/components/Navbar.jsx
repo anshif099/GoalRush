@@ -103,6 +103,7 @@ export default function Navbar({ currentView }) {
                   deferredPrompt.prompt();
                   deferredPrompt.userChoice.then(() => setDeferredPrompt(null));
                 }
+                localStorage.setItem('postInstallRedirect', 'login');
                 setTimeout(() => { window.location.hash = '#login'; }, 1200);
                 setDownloadOpen(false);
               }}>Android</a></li>
@@ -113,6 +114,7 @@ export default function Navbar({ currentView }) {
                   deferredPrompt.prompt();
                   deferredPrompt.userChoice.then(() => setDeferredPrompt(null));
                 }
+                localStorage.setItem('postInstallRedirect', 'login');
                 setTimeout(() => { window.location.hash = '#login'; }, 1200);
                 setDownloadOpen(false);
               }}>iOS</a></li>
@@ -123,6 +125,7 @@ export default function Navbar({ currentView }) {
                   deferredPrompt.prompt();
                   deferredPrompt.userChoice.then(() => setDeferredPrompt(null));
                 }
+                localStorage.setItem('postInstallRedirect', 'login');
                 setTimeout(() => { window.location.hash = '#login'; }, 1200);
                 setDownloadOpen(false);
               }}>Windows</a></li>
