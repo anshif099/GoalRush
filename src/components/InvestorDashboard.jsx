@@ -59,7 +59,7 @@ export default function InvestorDashboard() {
                 max="6" 
                 value={projectionMonth} 
                 className="investor-range-input" 
-                onChange={(e) => setSelections(parseInt(e.target.value))} // Wait, setSelections? Ah! I should use setProjectionMonth! Let's check.
+
                 // Yes, setProjectionMonth is correct.
                 onChange={(e) => setProjectionMonth(parseInt(e.target.value))}
               />
