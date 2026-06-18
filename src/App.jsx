@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Stats from './components/Stats';
@@ -17,11 +17,37 @@ import CityLeaderboard from './components/CityLeaderboard';
 import Contact from './components/Contact';
 import ClosingCallout from './components/ClosingCallout';
 import Footer from './components/Footer';
+import Login from './pages/Login';
+import Register from './pages/Register';
 import './App.css';
 
 function App() {
-  // Scroll-triggered fade-up animations
+  const [currentView, setCurrentView] = useState('landing');
+
+  // Handle hash-based routing
   useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash;
+      if (hash === '#login') {
+        setCurrentView('login');
+        window.scrollTo(0, 0);
+      } else if (hash === '#register') {
+        setCurrentView('register');
+        window.scrollTo(0, 0);
+      } else {
+        setCurrentView('landing');
+      }
+    };
+
+    handleHashChange();
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
+  // Scroll-triggered fade-up animations (re-runs when currentView changes back to landing)
+  useEffect(() => {
+    if (currentView !== 'landing') return;
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -37,32 +63,39 @@ function App() {
     elements.forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();
-  }, []);
+  }, [currentView]);
 
   return (
     <div className="app">
-      <Navbar />
+      <Navbar currentView={currentView} />
       <main>
-        <Hero />
-        <Stats />
-        <PlatformFeatures />
-        <Timeline />
-        <Features />
-        <AIPersonalization />
-        <Challenges />
-        <Predictions />
-        <Rewards />
-        <Marketplace />
-        <Sponsors />
-        <InvestorDashboard />
-        <Community />
-        <CityLeaderboard />
-        <Contact />
-        <ClosingCallout />
+        {currentView === 'landing' && (
+          <>
+            <Hero />
+            <Stats />
+            <PlatformFeatures />
+            <Timeline />
+            <Features />
+            <AIPersonalization />
+            <Challenges />
+            <Predictions />
+            <Rewards />
+            <Marketplace />
+            <Sponsors />
+            <InvestorDashboard />
+            <Community />
+            <CityLeaderboard />
+            <Contact />
+            <ClosingCallout />
+          </>
+        )}
+        {currentView === 'login' && <Login />}
+        {currentView === 'register' && <Register />}
       </main>
-      <Footer />
+      {currentView === 'landing' && <Footer />}
     </div>
   );
 }
 
 export default App;
+

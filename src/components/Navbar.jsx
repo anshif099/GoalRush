@@ -12,10 +12,11 @@ const NAV_LINKS = [
   { label: 'Contact', href: '#contact' },
 ];
 
-export default function Navbar() {
+export default function Navbar({ currentView }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeLink, setActiveLink] = useState('Home');
+  const [downloadOpen, setDownloadOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,6 +25,23 @@ export default function Navbar() {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Update activeLink based on currentView and hash
+  useEffect(() => {
+    if (currentView === 'login') {
+      setActiveLink('Login');
+    } else if (currentView === 'register') {
+      setActiveLink('Register');
+    } else if (currentView === 'landing') {
+      const hash = window.location.hash;
+      const matchingLink = NAV_LINKS.find(link => link.href === hash);
+      if (matchingLink) {
+        setActiveLink(matchingLink.label);
+      } else {
+        setActiveLink('Home');
+      }
+    }
+  }, [currentView]);
 
   const handleLinkClick = (label) => {
     setActiveLink(label);
@@ -55,8 +73,24 @@ export default function Navbar() {
 
         {/* Auth Buttons */}
         <div className={`navbar-auth ${menuOpen ? 'open' : ''}`}>
-          <button className="btn btn-outline btn-sm" id="nav-login-btn">Login</button>
-          <button className="btn btn-primary btn-sm" id="nav-register-btn">Register</button>
+          {/* Download Button with Dropdown */}
+          <div className="download-wrapper" style={{ position: 'relative' }}>
+            <button
+              className="btn btn-outline btn-sm"
+              id="nav-download-btn"
+              aria-haspopup="true"
+              aria-expanded={downloadOpen}
+              onClick={() => setDownloadOpen(!downloadOpen)}
+            >
+              Download
+            </button>
+            <ul className={`download-menu ${downloadOpen ? 'open' : ''}`}>
+              <li><a href="#" onClick={(e) => { e.preventDefault(); alert('Downloading for Android...'); setTimeout(() => { window.location.hash = '#login'; }, 1200); setDownloadOpen(false); }}>Android</a></li>
+              <li><a href="#" onClick={(e) => { e.preventDefault(); alert('Downloading for iOS...'); setTimeout(() => { window.location.hash = '#login'; }, 1200); setDownloadOpen(false); }}>iOS</a></li>
+              <li><a href="#" onClick={(e) => { e.preventDefault(); alert('Downloading for Windows...'); setTimeout(() => { window.location.hash = '#login'; }, 1200); setDownloadOpen(false); }}>Windows</a></li>
+              <li><a href="#" onClick={(e) => { e.preventDefault(); alert('Downloading for macOS...'); setTimeout(() => { window.location.hash = '#login'; }, 1200); setDownloadOpen(false); }}>macOS</a></li>
+            </ul>
+          </div>
         </div>
 
         {/* Hamburger */}
@@ -77,3 +111,4 @@ export default function Navbar() {
     </header>
   );
 }
+

@@ -157,9 +157,35 @@ export default function InvestorDashboard() {
           {/* Investor CTA Row */}
           <div className="dashboard-cta-footer">
             <p>Interested in our strategic expansion round? Connect with our investor relations team.</p>
-            <button className="btn btn-primary btn-sm" onClick={() => window.location.href='#contact'}>
-              Get Pitch Deck 📈
-            </button>
+            <div className="download-buttons" style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+              <button
+                className="btn btn-primary btn-sm"
+                onClick={() => {
+                  window.open('https://play.google.com/store/apps/details?id=com.goalrush.app', '_blank');
+                  window.location.hash = '#register';
+                }}
+              >
+                Android 📱
+              </button>
+              <button
+                className="btn btn-primary btn-sm"
+                onClick={() => {
+                  window.open('https://apps.apple.com/app/goalrush/id123456789', '_blank');
+                  window.location.hash = '#register';
+                }}
+              >
+                iOS 🍎
+              </button>
+              <button
+                className="btn btn-primary btn-sm"
+                onClick={() => {
+                  // Desktop web version – direct to register page
+                  window.location.hash = '#register';
+                }}
+              >
+                Desktop 💻
+              </button>
+            </div>
           </div>
         </div>
       </div>
