@@ -82,66 +82,10 @@ export default function Navbar({ currentView }) {
           ))}
         </ul>
 
-        {/* Auth Buttons */}
-        <div className={`navbar-auth ${menuOpen ? 'open' : ''}`}>
-          {/* Download Button with Dropdown */}
-          <div className="download-wrapper" style={{ position: 'relative' }}>
-            <button
-              className="btn btn-outline btn-sm"
-              id="nav-download-btn"
-              aria-haspopup="true"
-              aria-expanded={downloadOpen}
-              onClick={() => setDownloadOpen(!downloadOpen)}
-            >
-              Download
-            </button>
-            <ul className={`download-menu ${downloadOpen ? 'open' : ''}`}>
-              <li><a href="#" onClick={(e) => {
-                e.preventDefault();
-                alert('Downloading for Android...');
-                if (deferredPrompt) {
-                  deferredPrompt.prompt();
-                  deferredPrompt.userChoice.then(() => setDeferredPrompt(null));
-                }
-                localStorage.setItem('postInstallRedirect', 'login');
-                window.location.hash = '#login';
-                setDownloadOpen(false);
-              }}>Android</a></li>
-              <li><a href="#" onClick={(e) => {
-                  e.preventDefault();
-                  alert('Downloading for iOS...');
-                  if (deferredPrompt) {
-                    deferredPrompt.prompt();
-                    deferredPrompt.userChoice.then(() => setDeferredPrompt(null));
-                  }
-                  localStorage.setItem('postInstallRedirect', 'login');
-                  window.location.hash = '#login';
-                  setDownloadOpen(false);
-                }}>iOS</a></li>
-              <li><a href="#" onClick={(e) => {
-                e.preventDefault();
-                alert('Downloading for Windows...');
-                if (deferredPrompt) {
-                  deferredPrompt.prompt();
-                  deferredPrompt.userChoice.then(() => setDeferredPrompt(null));
-                }
-                localStorage.setItem('postInstallRedirect', 'login');
-                setTimeout(() => { window.location.hash = '#login'; }, 1200);
-                setDownloadOpen(false);
-              }}>Windows</a></li>
-              <li><a href="#" onClick={(e) => {
-                e.preventDefault();
-                alert('Downloading for macOS...');
-                if (deferredPrompt) {
-                  deferredPrompt.prompt();
-                  deferredPrompt.userChoice.then(() => setDeferredPrompt(null));
-                }
-                setTimeout(() => { window.location.hash = '#login'; }, 1200);
-                setDownloadOpen(false);
-              }}>macOS</a></li>
-            </ul>
+          {/* Auth Buttons */}
+          <div className={`navbar-auth ${menuOpen ? 'open' : ''}`}>
+            <a href="#login" className="btn btn-outline btn-sm" id="nav-login-btn" onClick={() => setMenuOpen(false)}>Login</a>
           </div>
-        </div>
 
         {/* Hamburger */}
         <button
