@@ -24,14 +24,15 @@ import './App.css';
 function App() {
   const [currentView, setCurrentView] = useState('landing');
 
-  // Handle hash-based routing
+  // Unified routing: handle hash and pathname (e.g., /login, /register)
   useEffect(() => {
-    const handleHashChange = () => {
+    const handleRoute = () => {
       const hash = window.location.hash;
-      if (hash === '#login') {
+      const path = window.location.pathname;
+      if (hash === '#login' || path === '/login') {
         setCurrentView('login');
         window.scrollTo(0, 0);
-      } else if (hash === '#register') {
+      } else if (hash === '#register' || path === '/register') {
         setCurrentView('register');
         window.scrollTo(0, 0);
       } else {
@@ -39,9 +40,13 @@ function App() {
       }
     };
 
-    handleHashChange();
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
+    handleRoute();
+    window.addEventListener('hashchange', handleRoute);
+    window.addEventListener('popstate', handleRoute);
+    return () => {
+      window.removeEventListener('hashchange', handleRoute);
+      window.removeEventListener('popstate', handleRoute);
+    };
   }, []);
 
   // Scroll-triggered fade-up animations (re-runs when currentView changes back to landing)
