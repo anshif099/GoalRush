@@ -17,6 +17,17 @@ export default function Navbar({ currentView }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeLink, setActiveLink] = useState('Home');
   const [downloadOpen, setDownloadOpen] = useState(false);
+  const [deferredPrompt, setDeferredPrompt] = useState(null);
+
+  // Capture the beforeinstallprompt event for PWA install
+  useEffect(() => {
+    const handler = (e) => {
+      e.preventDefault(); // Prevent the default mini-infobar
+      setDeferredPrompt(e);
+    };
+    window.addEventListener('beforeinstallprompt', handler);
+    return () => window.removeEventListener('beforeinstallprompt', handler);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -85,10 +96,46 @@ export default function Navbar({ currentView }) {
               Download
             </button>
             <ul className={`download-menu ${downloadOpen ? 'open' : ''}`}>
-              <li><a href="#" onClick={(e) => { e.preventDefault(); alert('Downloading for Android...'); setTimeout(() => { window.location.hash = '#login'; }, 1200); setDownloadOpen(false); }}>Android</a></li>
-              <li><a href="#" onClick={(e) => { e.preventDefault(); alert('Downloading for iOS...'); setTimeout(() => { window.location.hash = '#login'; }, 1200); setDownloadOpen(false); }}>iOS</a></li>
-              <li><a href="#" onClick={(e) => { e.preventDefault(); alert('Downloading for Windows...'); setTimeout(() => { window.location.hash = '#login'; }, 1200); setDownloadOpen(false); }}>Windows</a></li>
-              <li><a href="#" onClick={(e) => { e.preventDefault(); alert('Downloading for macOS...'); setTimeout(() => { window.location.hash = '#login'; }, 1200); setDownloadOpen(false); }}>macOS</a></li>
+              <li><a href="#" onClick={(e) => {
+                e.preventDefault();
+                alert('Downloading for Android...');
+                if (deferredPrompt) {
+                  deferredPrompt.prompt();
+                  deferredPrompt.userChoice.then(() => setDeferredPrompt(null));
+                }
+                setTimeout(() => { window.location.hash = '#login'; }, 1200);
+                setDownloadOpen(false);
+              }}>Android</a></li>
+              <li><a href="#" onClick={(e) => {
+                e.preventDefault();
+                alert('Downloading for iOS...');
+                if (deferredPrompt) {
+                  deferredPrompt.prompt();
+                  deferredPrompt.userChoice.then(() => setDeferredPrompt(null));
+                }
+                setTimeout(() => { window.location.hash = '#login'; }, 1200);
+                setDownloadOpen(false);
+              }}>iOS</a></li>
+              <li><a href="#" onClick={(e) => {
+                e.preventDefault();
+                alert('Downloading for Windows...');
+                if (deferredPrompt) {
+                  deferredPrompt.prompt();
+                  deferredPrompt.userChoice.then(() => setDeferredPrompt(null));
+                }
+                setTimeout(() => { window.location.hash = '#login'; }, 1200);
+                setDownloadOpen(false);
+              }}>Windows</a></li>
+              <li><a href="#" onClick={(e) => {
+                e.preventDefault();
+                alert('Downloading for macOS...');
+                if (deferredPrompt) {
+                  deferredPrompt.prompt();
+                  deferredPrompt.userChoice.then(() => setDeferredPrompt(null));
+                }
+                setTimeout(() => { window.location.hash = '#login'; }, 1200);
+                setDownloadOpen(false);
+              }}>macOS</a></li>
             </ul>
           </div>
         </div>
