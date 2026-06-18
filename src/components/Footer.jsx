@@ -29,7 +29,10 @@ export default function Footer() {
           </div>
           <div className="cta-actions">
             <button className="btn btn-gold btn-lg" id="footer-play-now-btn">⚽ Play Now — It&apos;s Free</button>
-            <button className="btn btn-outline btn-lg" id="footer-download-btn" onClick={(e)=>{e.preventDefault(); alert('Downloading app...'); localStorage.setItem('postInstallRedirect','login'); window.location.hash='#login';}}>⬇️ Download App</button>
+            <button className="btn btn-outline btn-lg" id="footer-download-btn" onClick={(e)=>{e.preventDefault(); alert('Installing app...'); if (window.deferredPrompt) { window.deferredPrompt.prompt(); window.deferredPrompt.userChoice.then(() => { delete window.deferredPrompt; localStorage.setItem('postInstallRedirect','login'); window.location.hash='#login'; }); } else { // fallback
+                localStorage.setItem('postInstallRedirect','login');
+                window.location.hash='#login';
+              } }}>⬇️ Download App</button>
             <button className="btn" style={{ background: 'rgba(255,255,255,0.15)', color: 'white', border: '1.5px solid rgba(255,255,255,0.3)' }} id="footer-sponsor-btn">
               🤝 Become a Sponsor
             </button>

@@ -24,9 +24,15 @@ export default function Navbar({ currentView }) {
     const handler = (e) => {
       e.preventDefault(); // Prevent the default mini-infobar
       setDeferredPrompt(e);
+      // expose globally for other components (e.g., Footer)
+      window.deferredPrompt = e;
     };
     window.addEventListener('beforeinstallprompt', handler);
-    return () => window.removeEventListener('beforeinstallprompt', handler);
+    return () => {
+      window.removeEventListener('beforeinstallprompt', handler);
+      // clean up global reference
+      if (window.deferredPrompt) delete window.deferredPrompt;
+    };
   }, []);
 
   useEffect(() => {
